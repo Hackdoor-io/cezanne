@@ -1,10 +1,12 @@
 package main
 
 import (
+  "fmt"
   "github.com/chromedp/cdproto/emulation"
   "github.com/chromedp/cdproto/page"
   "github.com/chromedp/chromedp"
   "github.com/joho/godotenv"
+  "github.com/aws/aws-lambda-go/lambda"
   "io/ioutil"
   "log"
   "context"
@@ -12,20 +14,46 @@ import (
   "regexp"
 )
 
+type LambdaEvent struct {
+  Target string `json:"target"`
+  Id string `json:"id"`
+}
+
 func main() {
 
-  err := godotenv.Load()
+  if os.Getenv("LAMBDA_ENV") != "true" {
 
-  if err != nil {
-    log.Fatal("Error loading .env file")
+    err := godotenv.Load()
+
+    if err != nil {
+      log.Fatal("Error loading .env file")
+    }
+
   }
 
+  lambda.Start(HandleRequest)
+}
+
+func HandleRequest(ctx context.Context, event LambdaEvent) (string, error) {
+
+  switch event.Target {
+    case "article":
+      HandleScreenshot(event.Target, event.Id)
+      break;
+  default:
+    fmt.Printf("Unknown target: %s", event.Target)
+  }
+
+  return fmt.Sprintf(""), nil
+}
+
+func HandleScreenshot(target string, id string) {
   ctx, cancel := chromedp.NewContext(context.Background())
   defer cancel()
 
   var buf []byte
 
-  if err := chromedp.Run(ctx, fullScreenshot(getImageUri("10"), 100, &buf)); err != nil {
+  if err := chromedp.Run(ctx, fullScreenshot(getImageUri(id), 100, &buf)); err != nil {
     log.Fatal(err)
   }
 
