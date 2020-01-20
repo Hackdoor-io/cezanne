@@ -31,6 +31,6 @@ in {
         access_key    = ""
       , access_secret = ""
       , bucket_name   = ""
-      , path 		      = "/path/example/:item/:id"
+      , path          = "/path/example/:item/:id"
     }
    }
