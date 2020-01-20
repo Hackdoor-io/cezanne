@@ -1,0 +1,36 @@
+{
+  "name": "cezanne",
+  "version": "0.0.1",
+  "description": "Build social images with Node.js",
+  "author": "Michele Riva <master@micheleriva.it>",
+  "homepage": "https://github.com/Hackdoor-io/cezanne#readme",
+  "license": "GPL-3.0",
+  "main": "lib/core.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackdoor-io/cezanne.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "start": "tsc -w",
+    "compileDhallConf": "sh ./src/compileDhall.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/Hackdoor-io/cezanne/issues"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "puppeteer": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/puppeteer": "^2.0.0"
+  }
+}
