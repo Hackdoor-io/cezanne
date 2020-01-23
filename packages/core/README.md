@@ -3,7 +3,7 @@
 ## Usage
 
 In order to get started with Cezanne, you need a configuration file in the root of your project (where the `package.json` file is located).
-In order to generate it, we suggest to use Dhall for a better development experience (not required, but recommanded).
+We suggest to use Dhall for a better development experience (not required, but recommanded).
 
 ```dhall
 let makeUrl = \(item : Text) ->
@@ -103,7 +103,8 @@ the generated JSON file is:
 }
 ```
 
-So now, you can start using Cezanne.
+Name the file `cezanne.config.json` and you can start to use Cezanne.
+
 It will generate a dynamic method for every route listed in your `cezanne.config.json` file, following the format:
 
 `generate[Endpoint][Social]`
@@ -122,6 +123,9 @@ If the specified uri has a dynamic parameter (using the Express.js colon notatio
 ```js
 import cezanne from "cezanne";
 
+const cez = cezanne.buildUri();
+
 // URI: https://example.com/instagram/articles/:id
-cezanne.generateArticlesInstagram({ id: "15" });
+//                                   dynamic id ^
+cez.generateArticlesInstagram({ id: "15" });
 ```

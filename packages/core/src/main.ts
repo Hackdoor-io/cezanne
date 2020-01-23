@@ -11,7 +11,7 @@ const extractParametersFromUri = (uri: string, args: any) => {
 
   for (const param of params) {
     const sanitizedParam = param.replace(/^:/, "");
-    finalUri.replace(param, args[sanitizedParam])
+    finalUri = finalUri.replace(param, args[sanitizedParam]);
   }
 
   return finalUri;
@@ -34,4 +34,6 @@ const generateDynamicEndpoints = R.compose(
   R.keys
 );
 
-module.exports = generateDynamicEndpoints(endpoints);
+module.exports = {
+  buildUri: generateDynamicEndpoints(endpoints)
+};
