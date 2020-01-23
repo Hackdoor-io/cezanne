@@ -27,10 +27,14 @@
   },
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "puppeteer": "^2.0.0"
+    "pkg-dir": "^4.2.0",
+    "puppeteer": "^2.0.0",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
-    "@types/puppeteer": "^2.0.0"
+    "@types/puppeteer": "^2.0.0",
+    "@types/ramda": "^0.26.40",
+    "aws-sdk": "^2.606.0"
   }
 }
