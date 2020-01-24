@@ -3,7 +3,7 @@
 ## Usage
 
 In order to get started with Cezanne, you need a configuration file in the root of your project (where the `package.json` file is located).
-We suggest to use Dhall for a better development experience (not required, but recommanded).
+We suggest to use Dhall for a better development experience (not required, but recommended).
 
 ```dhall
 let makeUrl = \(item : Text) ->
@@ -49,12 +49,7 @@ the generated JSON file is:
 
 ```json
 {
-  "aws": {
-    "access_key": "",
-    "access_secret": "",
-    "bucket_name": "",
-    "path": "/path/example/:item/:id"
-  },
+  "version": 0.1,
   "endpoints": {
     "articles": {
       "instagram": "https://example.com/instagram/articles/:id",
@@ -81,7 +76,6 @@ the generated JSON file is:
       "twitter": "https://example.com/twitter/topics/:id"
     }
   },
-  "version": 0.1,
   "viewports": {
     "instagram": [
       1080,
@@ -99,6 +93,12 @@ the generated JSON file is:
       1012,
       506
     ]
+  },
+  "aws": {
+    "access_key": "",
+    "access_secret": "",
+    "bucket_name": "",
+    "path": "/path/example/:item/:id"
   }
 }
 ```
