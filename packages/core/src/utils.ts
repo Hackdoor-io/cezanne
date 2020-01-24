@@ -1,8 +1,9 @@
-import rootDir from "pkg-dir";
+const findUp = require("find-up");
 
-// @ts-ignore
-export const config: Record<string, any> = require(`${rootDir.sync(process.cwd())}/cezanne.config.json`);
+const configPath = findUp("cezanne.config.json");
+
+export const config: Record<string, any> = require(configPath);
 
 export const capitalize = (text: string): string => {
-  return text.charAt(0).toUpperCase() + text.slice(1)
+  return text.charAt(0).toUpperCase() + text.slice(1);
 };

@@ -5,36 +5,74 @@
   "author": "Michele Riva <master@micheleriva.it>",
   "homepage": "https://github.com/Hackdoor-io/cezanne#readme",
   "license": "GPL-3.0",
-  "main": "lib/core.ts",
+  "main": "./lib/main.js",
+  "module": "./lib/main.js",
+  "types": "./lib/main.d.ts",
   "directories": {
     "lib": "lib",
-    "test": "__tests__"
+    "test": "tests"
   },
   "files": [
     "lib"
+  ],
+  "keywords": [
+    "puppeteer",
+    "nodejs",
+    "social",
+    "opengraph",
+    "screenshot"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hackdoor-io/cezanne.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "start": "tsc -w",
+    "dev": "rollup -c -w",
+    "test": "jest --coverage --watch",
     "compileDhallConf": "sh ./src/compileDhall.sh"
   },
   "bugs": {
     "url": "https://github.com/Hackdoor-io/cezanne/issues"
   },
   "dependencies": {
-    "fs-extra": "^8.1.0",
+    "find-up": "^4.1.0",
     "pkg-dir": "^4.2.0",
     "puppeteer": "^2.0.0",
-    "ramda": "^0.26.1"
+    "rambdax": "^3.5.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "devDependencies": {
-    "@types/fs-extra": "^8.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@types/jest": "^24.9.1",
     "@types/puppeteer": "^2.0.0",
     "@types/ramda": "^0.26.40",
-    "aws-sdk": "^2.606.0"
+    "aws-sdk": "^2.606.0",
+    "codecov": "^3.6.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5",
+    "typescript-eslint-parser": "^22.0.0"
   }
 }

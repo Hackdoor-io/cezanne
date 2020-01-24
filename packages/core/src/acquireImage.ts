@@ -7,13 +7,13 @@ const acquireImage: acquireImage = (endpoint, [width, height]) =>
     try {
       const browser = await puppeteer.launch({
         args: [
-          '--disable-gpu',
-          '--disable-dev-shm-usage',
-          '--disable-setuid-sandbox',
-          '--no-first-run',
-          '--no-sandbox',
-          '--no-zygote',
-          '--single-process'
+          "--disable-gpu",
+          "--disable-dev-shm-usage",
+          "--disable-setuid-sandbox",
+          "--no-first-run",
+          "--no-sandbox",
+          "--no-zygote",
+          "--single-process"
         ]
       });
 
@@ -23,10 +23,9 @@ const acquireImage: acquireImage = (endpoint, [width, height]) =>
       const buffer = await page.screenshot();
       await browser.close();
       resolve(buffer);
-
-    } catch(err) {
+    } catch (err) {
       reject(err);
     }
-});
+  });
 
 export default acquireImage;
