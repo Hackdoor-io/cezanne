@@ -20,9 +20,9 @@ const acquireImage: acquireImage = (endpoint, [width, height]) =>
       const page = await browser.newPage();
       await page.goto(endpoint);
       await page.setViewport({ width, height });
-      const renderedImage = await page.screenshot();
+      const buffer = await page.screenshot();
       await browser.close();
-      resolve(renderedImage);
+      resolve(buffer);
 
     } catch(err) {
       reject(err);

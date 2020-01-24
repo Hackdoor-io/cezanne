@@ -1,6 +1,6 @@
 {
   "name": "cezanne",
-  "version": "0.0.1",
+  "version": "0.0.1-pre-alpha",
   "description": "Build social images with Node.js",
   "author": "Michele Riva <master@micheleriva.it>",
   "homepage": "https://github.com/Hackdoor-io/cezanne#readme",

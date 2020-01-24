@@ -4,7 +4,7 @@ import acquireImage from "./acquireImage"
 
 const endpoints = config.endpoints;
 
-const extractParametersFromUri = (uri: string, args: any) => {
+export const extractParametersFromUri = (uri: string, args: Record<string, any>): string => {
   const params = uri.match(/:\w+/gi) || [];
 
   let finalUri = uri;
@@ -17,11 +17,12 @@ const extractParametersFromUri = (uri: string, args: any) => {
   return finalUri;
 };
 
-type generateDynamicFunction = (endpoint: string, social: string) => Record<string, any>;
-const generateDynamicFunction: generateDynamicFunction = (endpoint, social) => ({
-  // @ts-ignore
-  [`generate${capitalize(endpoint)}${capitalize(social)}`]:
-    (args: Record<string, any>) => acquireImage(extractParametersFromUri(endpoints[endpoint][social], args), config.viewports[social])
+export const generateFunctionName = (endpoint: string, social: string): string => `generate${capitalize(endpoint)}${capitalize(social)}`
+
+export const generateDynamicFunction = (endpoint: string, social: string): Record<string, any> => ({
+  [generateFunctionName(endpoint, social)](args: Record<string, any>) {
+    return acquireImage(extractParametersFromUri(endpoints[endpoint][social], args), config.viewports[social])
+  }
 });
 
 const generateEndpoint = (endpoint: string) =>
@@ -35,5 +36,5 @@ const generateDynamicEndpoints = R.compose(
 );
 
 module.exports = {
-  buildUri: generateDynamicEndpoints(endpoints)
+  ...generateDynamicEndpoints(endpoints)
 };

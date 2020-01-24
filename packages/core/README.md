@@ -123,9 +123,9 @@ If the specified uri has a dynamic parameter (using the Express.js colon notatio
 ```js
 import cezanne from "cezanne";
 
-const cez = cezanne.buildUri();
+const { generateArticlesInstagram } = cezanne;
 
 // URI: https://example.com/instagram/articles/:id
 //                                   dynamic id ^
-cez.generateArticlesInstagram({ id: "15" });
+generateArticlesInstagram({ id: "15" });
 ```
