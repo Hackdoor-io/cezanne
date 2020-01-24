@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "micheleriva",
+      "name": "Michele Riva",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/14977595?v=4",
+      "profile": "https://www.micheleriva.it",
+      "contributions": [
+        "code",
+        "ideas",
+        "maintenance",
+        "infra"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "cezanne",
+  "projectOwner": "Hackdoor-io",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
