@@ -25,7 +25,7 @@ async function createInstagramImage() {
 ```
 
 is really that easy? <br />
-Yes. And you can learn more reading the [official documentation](cezanne.opensource.hackdoor.io).
+Yes. And you can learn more reading the [official documentation](https://cezanne.opensource.hackdoor.io).
 
 ## Contributors ✨
 
