@@ -1,5 +1,5 @@
-const dynamicMethods = require("./src/methodGenerator");
+const { create } = require("./src/methodGenerator");
 
 module.exports = {
-  ...dynamicMethods
+  create
 };

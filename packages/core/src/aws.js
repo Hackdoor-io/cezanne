@@ -6,6 +6,12 @@ const S3 = new AWS.S3({
   secretAccessKey: config.aws.access_secret
 });
 
+/**
+ * @function uploadFile
+ * @param {Buffer|string} file
+ * @param {string} key
+ * @return {Promise<ManagedUpload.SendData>}
+ */
 
 export const uploadFile = ({ file, key }) =>
   S3.upload({ Bucket: config.aws.bucket_name, Key: key, Body: file }).promise();

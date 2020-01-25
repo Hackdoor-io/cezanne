@@ -4,7 +4,14 @@ const acquireImage = require("./acquireImage");
 
 const endpoints = config.endpoints;
 
-exports.extractParametersFromUri = (uri, args) => {
+/**
+ * @function extractParametersFromUri
+ * @param {string} uri
+ * @param {Record<string, string>} args
+ * @return {string}
+ */
+
+const extractParametersFromUri = (uri, args) => {
   const params = uri.match(/:\w+/gi) || [];
 
   let finalUri = uri;
@@ -17,9 +24,24 @@ exports.extractParametersFromUri = (uri, args) => {
   return finalUri;
 };
 
-exports.generateFunctionName = (endpoint, social) => `generate${capitalize(endpoint)}${capitalize(social)}`;
+/**
+ * @function generateFunctionName
+ * @param {string} endpoint
+ * @param {string} social
+ * @return {string}
+ */
 
-exports.generateDynamicFunction = (endpoint, social) => ({
+const generateFunctionName = (endpoint, social) =>
+  `generate${capitalize(endpoint)}${capitalize(social)}`;
+
+/**
+ * @function generateDynamicFunction
+ * @param {string} endpoint
+ * @param {string} social
+ * @return {Record<string, Function>}
+ */
+
+const generateDynamicFunction = (endpoint, social) => ({
   [generateFunctionName(endpoint, social)](args) {
     return acquireImage(
       extractParametersFromUri(endpoints[endpoint][social], args),
@@ -28,13 +50,23 @@ exports.generateDynamicFunction = (endpoint, social) => ({
   }
 });
 
-exports.generateEndpoint = (endpoint) =>
-  R.mergeAll(
-    R.keys(endpoints[endpoint]).map(social => generateDynamicFunction(endpoint, String(social)))
-  );
+/**
+ * @function generateEndpoint
+ * @param {string} endpoint
+ * @return {Record<string, Function>}
+ */
 
-exports.generateDynamicEndpoints = R.compose(R.mergeAll, R.map(generateEndpoint), R.keys);
+const generateEndpoint = endpoint =>
+  R.mergeAll(R.keys(endpoints[endpoint]).map(social => generateDynamicFunction(endpoint, social)));
+
+const generateDynamicEndpoints = R.compose(R.mergeAll, R.map(generateEndpoint), R.keys);
 
 module.exports = {
-  ...generateDynamicEndpoints(endpoints)
+  generateEndpoint,
+  generateDynamicFunction,
+  generateFunctionName,
+  extractParametersFromUri,
+  create: {
+    ...generateDynamicEndpoints(endpoints)
+  }
 };
