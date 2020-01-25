@@ -3,9 +3,11 @@
 This is the monorepo for the **Cezanne** static image generator.
 
 # Packages
+
 - [Cezanne Core](/packages/core)
 - Cezanne Lambda (work in progress)
 - Cezanne Express (work in progress)
+- Cezanne Cli (work in progress)
 
 # Cezanne in few words
 
@@ -16,8 +18,8 @@ So we decided to build **Cezanne**.
 import cezanne from "cezanne";
 
 async function createInstagramImage() {
-    const { generateInstagramArticles } = cezanne;
-    const imageBuffer = await generateInstagramArticles({ id: 54 });
+  const { generateInstagramArticles } = cezanne;
+  const imageBuffer = await generateInstagramArticles({ id: 54 });
 }
 ```
 
@@ -39,10 +41,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 # License
+
 ![FSF](https://camo.githubusercontent.com/4c95d7815a532e180f995b954d7989a9381ea574/68747470733a2f2f7374617469632e6673662e6f72672f6e6f73766e2f6173736f63696174652f63726d2f333836313831362e706e67)<br />
 Licensed under the [GPLv3](/LICENSE.md) license.

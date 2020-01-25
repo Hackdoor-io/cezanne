@@ -28,7 +28,8 @@
   },
   "scripts": {
     "dev": "rollup -c -w",
-    "test": "jest --coverage --watch",
+    "build": "rollup -c",
+    "test": "jest --coverage",
     "compileDhallConf": "sh ./src/compileDhall.sh"
   },
   "bugs": {
@@ -36,29 +37,10 @@
   },
   "dependencies": {
     "find-up": "^4.1.0",
-    "pkg-dir": "^4.2.0",
     "puppeteer": "^2.0.0",
     "rambdax": "^3.5.0"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json",
-      "node"
-    ],
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
-  },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@types/jest": "^24.9.1",
-    "@types/puppeteer": "^2.0.0",
-    "@types/ramda": "^0.26.40",
     "aws-sdk": "^2.606.0",
     "codecov": "^3.6.2",
     "eslint": "^6.8.0",
@@ -67,12 +49,6 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^25.1.0",
-    "prettier": "^1.19.1",
-    "rollup-plugin-bundle-size": "^1.0.3",
-    "rollup-plugin-terser": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "ts-jest": "^25.0.0",
-    "typescript": "^3.7.5",
-    "typescript-eslint-parser": "^22.0.0"
+    "prettier": "^1.19.1"
   }
 }

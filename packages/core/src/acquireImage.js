@@ -1,8 +1,6 @@
-import * as puppeteer from "puppeteer";
+const puppeteer = require("puppeteer");
 
-type acquireImage = (endpoint: string, params: [number, number]) => Promise<string>;
-
-const acquireImage: acquireImage = (endpoint, [width, height]) =>
+module.exports = (endpoint, [width, height]) =>
   new Promise(async (resolve, reject) => {
     try {
       const browser = await puppeteer.launch({
@@ -27,5 +25,3 @@ const acquireImage: acquireImage = (endpoint, [width, height]) =>
       reject(err);
     }
   });
-
-export default acquireImage;
