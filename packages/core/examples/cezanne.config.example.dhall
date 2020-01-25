@@ -13,6 +13,7 @@ let makeUrl = \(item : Text) ->
 
 in {
 	   version   = 0.1
+	 , debug     = True
 	 , endpoints = {
        articles  = makeUrl "articles"
      , topics    = makeUrl "topics"

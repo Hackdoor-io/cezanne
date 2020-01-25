@@ -36,6 +36,7 @@
     "url": "https://github.com/Hackdoor-io/cezanne/issues"
   },
   "dependencies": {
+    "chalk": "^3.0.0",
     "find-up": "^4.1.0",
     "puppeteer": "^2.0.0",
     "rambdax": "^3.5.0"
