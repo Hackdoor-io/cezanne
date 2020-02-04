@@ -38,6 +38,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "find-up": "^4.1.0",
+    "fs-extra": "^8.1.0",
     "puppeteer": "^2.0.0",
     "rambdax": "^3.5.0"
   },

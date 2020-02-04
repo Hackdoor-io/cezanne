@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer");                                                                                                                           
 
 module.exports = (endpoint, [width, height]) =>
   new Promise(async (resolve, reject) => {

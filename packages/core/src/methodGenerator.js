@@ -1,4 +1,6 @@
 const R = require("rambdax");
+const fs = require("fs");
+const S3 = require("./aws");
 const { config, capitalize, extractParametersFromUri } = require("./utils");
 const acquireImage = require("./acquireImage");
 
@@ -22,11 +24,21 @@ const generateFunctionName = (endpoint, social) =>
  */
 
 const generateDynamicFunction = (endpoint, social) => ({
-  [generateFunctionName(endpoint, social)](args) {
-    return acquireImage(
+  async [generateFunctionName(endpoint, social)](args) {
+    const buffer = await acquireImage(
       extractParametersFromUri(endpoints[endpoint][social], args),
       config.viewports[social]
     );
+
+    return {
+      toFileSync: path => fs.writeFileSync(path, buffer),
+      toFile: path =>
+        new Promise((resolve, reject) =>
+          fs.writeFile(path, buffer, err => (err ? reject(err) : resolve()))
+        ),
+      toS3: (fileName, placeholders) => S3(buffer, fileName, placeholders),
+      buffer
+    };
   }
 });
 
@@ -45,7 +57,7 @@ module.exports = {
   generateEndpoint,
   generateDynamicFunction,
   generateFunctionName,
-  create: {
+  useGenerator: {
     ...generateDynamicEndpoints(endpoints)
   }
 };
