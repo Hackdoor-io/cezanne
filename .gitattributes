@@ -2,5 +2,4 @@
 *.ts linguist-detectable=true
 *.sh linguist-detectable=true
 *.js linguist-detectable=true
-docusaurus/*.js linguist-detectable=false
-docusaurus/*.css linguist-detectable=false
+docusaurus/* linguist-documentation
