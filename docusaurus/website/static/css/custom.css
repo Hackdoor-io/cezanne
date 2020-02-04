@@ -4,8 +4,17 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
- 
+
 /* your custom css */
+
+.promoImg {
+  width: 500px;
+  max-width: 80vw;
+}
+
+.homeContainer {
+  background: linear-gradient(0deg, #ffffff 0%, #ccc0ff 100%);
+}
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }

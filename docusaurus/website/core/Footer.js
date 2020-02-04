@@ -37,10 +37,8 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl("doc1.html", this.props.language)}>
-              Getting Started (or other categories)
-            </a>
-            <a href={this.docUrl("doc2.html", this.props.language)}>Guides (or other categories)</a>
+            <a href={this.docUrl("introduction.html", this.props.language)}>Introduction</a>
+            <a href={this.docUrl("configuration.html", this.props.language)}>Configuration</a>
             <a href={this.docUrl("doc3.html", this.props.language)}>
               API Reference (or other categories)
             </a>
@@ -55,15 +53,14 @@ class Footer extends React.Component {
             >
               Stack Overflow
             </a>
-            <a href="https://discordapp.com/">Project Chat</a>
-            <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">
+            <a href="https://twitter.com/hackdoor_io" target="_blank" rel="noreferrer noopener">
               Twitter
             </a>
           </div>
           <div>
             <h5>More</h5>
-            <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
-            <a href="https://github.com/">GitHub</a>
+            <a href={`${this.props.config.baseUrl}/blog`}>Blog</a>
+            <a href="https://github.com/hackdoor-io/cezanne">GitHub</a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}
@@ -75,29 +72,11 @@ class Footer extends React.Component {
             >
               Star
             </a>
-            {this.props.config.twitterUsername && (
-              <div className="social">
-                <a
-                  href={`https://twitter.com/${this.props.config.twitterUsername}`}
-                  className="twitter-follow-button"
-                >
-                  Follow @{this.props.config.twitterUsername}
-                </a>
-              </div>
-            )}
-            {this.props.config.facebookAppId && (
-              <div className="social">
-                <div
-                  className="fb-like"
-                  data-href={this.props.config.url}
-                  data-colorscheme="dark"
-                  data-layout="standard"
-                  data-share="true"
-                  data-width="225"
-                  data-show-faces="false"
-                />
-              </div>
-            )}
+            <div className="social">
+              <a href={`https://twitter.com/hackdoor_io`} className="twitter-follow-button">
+                Follow @hackdoor_io
+              </a>
+            </div>
           </div>
         </section>
 
