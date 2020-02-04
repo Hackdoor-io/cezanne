@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Configuration · Cezanne</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Make sure to read the [introduction](/introduction) to **Cezanne**!"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Configuration · Cezanne"/><meta property="og:type" content="website"/><meta property="og:url" content="https://hackdoor-io.github.io/cezanne/"/><meta property="og:description" content="Make sure to read the [introduction](/introduction) to **Cezanne**!"/><meta property="og:image" content="https://hackdoor-io.github.io/cezanne/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://hackdoor-io.github.io/cezanne/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="//img/cezanne_icon.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://hackdoor-io.github.io/cezanne/blog/atom.xml" title="Cezanne Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://hackdoor-io.github.io/cezanne/blog/feed.xml" title="Cezanne Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="//img/cezanne_icon.svg" alt="Cezanne"/><h2 class="headerTitleWithLogo">Cezanne</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/introduction" target="_self">Introduction</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/configuration" target="_self">Configuration</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/introduction">Understanding Cezanne</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/generatingImages">Generating Images</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Configuration</h1></header><article><div><span><p>Make sure to read the <a href="/introduction">introduction</a> to <strong>Cezanne</strong>!</p>
+<p><img src="/img/misc/configuration.png" width="500px" style="max-width:90vw;" /></p>
+<p><strong>Cezanne</strong> automatically looks for a file called <code>cezanne.config.json</code> in the root of your project (where the <code>package.json</code> file is). <br>
+The file must be formatted as follows:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"version"</span>: <span class="hljs-number">0.1</span>,
+  <span class="hljs-attr">"debug"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"aws"</span>: {
+    <span class="hljs-attr">"access_key"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"access_secret"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"bucket_name"</span>: <span class="hljs-string">""</span>
+  },
+  <span class="hljs-attr">"endpoints"</span>: {
+    <span class="hljs-attr">"articles"</span>: {
+      <span class="hljs-attr">"instagram"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"linkedin"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"opengraph"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-attr">"twitter"</span>: <span class="hljs-string">""</span>
+    }
+  },
+  <span class="hljs-attr">"viewports"</span>: {
+    <span class="hljs-attr">"instagram"</span>: [<span class="hljs-number">1080</span>, <span class="hljs-number">1080</span>],
+    <span class="hljs-attr">"linkedin"</span>: [<span class="hljs-number">1920</span>, <span class="hljs-number">1080</span>],
+    <span class="hljs-attr">"opengraph"</span>: [<span class="hljs-number">1200</span>, <span class="hljs-number">630</span>],
+    <span class="hljs-attr">"twitter"</span>: [<span class="hljs-number">1012</span>, <span class="hljs-number">506</span>]
+  }
+}
+</code></pre>
+<p>Let's break down all the required keys:</p>
+<table>
+<thead>
+<tr><th>Key</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Version</strong></td><td><code>true</code></td><td>The configuration version. Default is <code>0.1</code></td></tr>
+<tr><td><strong>Debug</strong></td><td><code>false</code></td><td>Will print debug information to the console. Default is <code>false</code></td></tr>
+<tr><td><strong>AWS</strong></td><td><code>false</code></td><td>AWS credentials. Required to upload the resulting images to <strong>S3</strong></td></tr>
+<tr><td><strong>Endpoints</strong></td><td><code>true</code></td><td>A list of endpoints. Every endpoint will generate a specific function (see forward)</td></tr>
+<tr><td><strong>Viewports</strong></td><td><code>true</code></td><td>The viewport to be set for every social image (<code>[width, height]</code>)</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="endpoints-in-depths"></a><a href="#endpoints-in-depths" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Endpoints in depths</h2>
+<p>Let's dig deeper into the <code>endpoints</code> section:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"endpoints"</span>: {
+    <span class="hljs-attr">"articles"</span>: {
+      <span class="hljs-attr">"instagram"</span>: <span class="hljs-string">"https://example.com/cezanne/articles/instagram/:postId/:slug"</span>,
+      <span class="hljs-attr">"linkedin"</span>: <span class="hljs-string">"https://example.com/cezanne/articles/linkedin/:postId/:slug"</span>,
+      <span class="hljs-attr">"opengraph"</span>: <span class="hljs-string">"https://example.com/cezanne/articles/opengraph/:postId/:slug"</span>,
+      <span class="hljs-attr">"twitter"</span>: <span class="hljs-string">"https://example.com/cezanne/articles/twitter/:postId/:slug"</span>
+    },
+    <span class="hljs-attr">"tags"</span>: {
+      <span class="hljs-attr">"instagram"</span>: <span class="hljs-string">"https://example.com/cezanne/tags/instagram/:postId/:slug"</span>,
+      <span class="hljs-attr">"linkedin"</span>: <span class="hljs-string">"https://example.com/cezanne/tags/linkedin/:postId/:slug"</span>,
+      <span class="hljs-attr">"opengraph"</span>: <span class="hljs-string">"https://example.com/cezanne/tags/opengraph/:postId/:slug"</span>,
+      <span class="hljs-attr">"twitter"</span>: <span class="hljs-string">"https://example.com/cezanne/tags/twitter/:postId/:slug"</span>
+    }
+  }
+}
+</code></pre>
+<p>Let's pretend that you just want to create social/open graph images for your blog posts and tags.<br>
+You'll need then to setup a route for every template that will be rendered and then captured by <strong>Cezanne</strong>. <br>
+As you can see, you'll also need to write down every dynamic parameter of your route (such as post id, post slug and so on).</p>
+<h2><a class="anchor" aria-hidden="true" id="using-dhall"></a><a href="#using-dhall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Dhall</h2>
+<p>While <strong><a href="https://dhall-lang.org">Dhall</a></strong> is not currently supported (but will be in the future), we strongly encourage you to use it to generate your <strong>Cezanne</strong> configuration file.</p>
+<pre><code class="hljs css language-haskell"><span class="hljs-title">let</span> makeUrl = \(item : <span class="hljs-type">Text</span>) -&gt;
+    <span class="hljs-keyword">let</span> remote    = <span class="hljs-string">"https://example.com"</span>
+    <span class="hljs-keyword">let</span> opengraph = <span class="hljs-string">"${remote}/opengraph"</span>
+    <span class="hljs-keyword">let</span> instagram = <span class="hljs-string">"${remote}/instagram"</span>
+    <span class="hljs-keyword">let</span> twitter   = <span class="hljs-string">"${remote}/twitter"</span>
+    <span class="hljs-keyword">let</span> linkedin  = <span class="hljs-string">"${remote}/linkedin"</span>
+    <span class="hljs-keyword">in</span> {
+        instagram = <span class="hljs-string">"${instagram}/${item}/:id"</span>
+      , opengraph = <span class="hljs-string">"${opengraph}/${item}/:id"</span>
+      , twitter   = <span class="hljs-string">"${twitter}/${item}/:id"</span>
+      , linkedin  = <span class="hljs-string">"${linkedin}/${item}/:id"</span>
+     }
+
+<span class="hljs-title">in</span> {
+       version   = <span class="hljs-number">0.1</span>
+     , debug     = <span class="hljs-type">True</span>
+     , endpoints = {
+       articles  = makeUrl <span class="hljs-string">"articles"</span>
+     , topics    = makeUrl <span class="hljs-string">"topics"</span>
+     , authors   = makeUrl <span class="hljs-string">"authors"</span>
+     , languages = makeUrl <span class="hljs-string">"languages"</span>
+    }
+    ,
+    viewports = {
+        instagram = [<span class="hljs-number">1080</span>, <span class="hljs-number">1080</span>]
+      , opengraph = [<span class="hljs-number">1200</span>, <span class="hljs-number">630</span>]
+      , twitter   = [<span class="hljs-number">1012</span>, <span class="hljs-number">506</span>]
+      , linkedin  = [<span class="hljs-number">1920</span>, <span class="hljs-number">1080</span>]
+    }
+    ,
+    aws = {
+        access_key    = <span class="hljs-string">""</span>
+      , access_secret = <span class="hljs-string">""</span>
+      , bucket_name   = <span class="hljs-string">""</span>
+      , path          = <span class="hljs-string">"/path/example/:item/:id"</span>
+    }
+   }
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/introduction"><span class="arrow-prev">← </span><span>Understanding Cezanne</span></a><a class="docs-next button" href="/docs/generatingImages"><span>Generating Images</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#endpoints-in-depths">Endpoints in depths</a></li><li><a href="#using-dhall">Using Dhall</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="//img/cezanne_icon.svg" alt="Cezanne" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/introduction.html">Introduction</a><a href="/docs/en/configuration.html">Configuration</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/hackdoor_io" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="//blog">Blog</a><a href="https://github.com/hackdoor-io/cezanne">GitHub</a><a class="github-button" href="https://github.com/Hackdoor-io/cezanne/" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/hackdoor_io" class="twitter-follow-button">Follow @hackdoor_io</a></div></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Hackdoor.io</section></footer></div></body></html>
