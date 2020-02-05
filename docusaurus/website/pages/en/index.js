@@ -133,22 +133,26 @@ class Index extends React.Component {
     );
 
     const Features = () => (
-      <Block layout="fourColumn">
-        {[
-          {
-            content: "This is the content of my feature",
-            image: `${baseUrl}img/undraw_react.svg`,
-            imageAlign: "top",
-            title: "Feature One"
-          },
-          {
-            content: "The content of my second feature",
-            image: `${baseUrl}img/undraw_operating_system.svg`,
-            imageAlign: "top",
-            title: "Feature Two"
-          }
-        ]}
-      </Block>
+      <div className="feature-block">
+        <Block layout="fourColumn">
+          {[
+            {
+              content:
+                "Create your social images using React, Vue, Angular, Svelte... or even plain HTML and CSS!",
+              image: `${baseUrl}img/misc/js.png`,
+              imageAlign: "top",
+              title: "Use your favourite framework"
+            },
+            {
+              content:
+                "Cezanne natively supports AWS S3, but you can actually upload your images wherever you want!",
+              image: `${baseUrl}img/misc/net.png`,
+              imageAlign: "top",
+              title: "Save images everywhere"
+            }
+          ]}
+        </Block>
+      </div>
     );
 
     const Showcase = () => {
@@ -185,10 +189,6 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
           <Showcase />
         </div>
       </div>

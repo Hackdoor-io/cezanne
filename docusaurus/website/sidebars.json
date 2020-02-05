@@ -1,6 +1,6 @@
 {
   "docs": {
     "Introduction": ["introduction"],
-    "Getting Started": ["configuration", "generatingImages"]
+    "Getting Started": ["configuration", "generatingImages", "savingImages"]
   }
 }

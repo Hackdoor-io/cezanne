@@ -3,7 +3,7 @@ id: generatingImages
 title: Generating Images
 ---
 
-<img src="/img/misc/generatingImages.png" width="300" style="max-width:90vw;" />
+<img src="/cezanne/img/misc/generatingImages.png" width="300" style="max-width:90vw;" />
 
 Now that you've set up the `cezanne.config.json` [configuration file](/docs/configuration), you're ready to start using **Cezanne**.
 

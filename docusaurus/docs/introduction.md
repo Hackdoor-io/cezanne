@@ -6,7 +6,7 @@ sidebar_label: Understanding Cezanne
 
 **Cezanne** is an image generator for **Node.js**, built to make it easy to dynamically generate open graph and social images.
 
-<img src="/img/misc/introduction.png" width="300" style="max-width:90vw;" />
+<img src="/cezanne/img/misc/introduction.png" width="300" style="max-width:90vw;" />
 
 ## An typical use case
 
@@ -19,6 +19,6 @@ Here comes **Cezanne**!
 
 When you're building your blog, you can design a page that only renders the layout for (let's say) an open graph image for your blog post:
 
-<img src="/img/misc/server-rendering-example.gif" style="max-width:90vw;" />
+<img src="/cezanne/img/misc/server-rendering-example.gif" style="max-width:90vw;" />
 
 Great! Now that we have a server that renders a given template, we can use **Cezanne** to generate the open graph image just telling the URL of the page you previously designed!

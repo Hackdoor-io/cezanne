@@ -11,7 +11,7 @@
 const users = [
   {
     caption: "Hackdoor",
-    image: "/img/undraw_open_source.svg",
+    image: "/cezanne/img/users/hackdoor.png",
     infoLink: "https://www.hackdoor.io",
     pinned: true
   }
@@ -29,8 +29,7 @@ const siteConfig = {
   headerLinks: [
     { doc: "introduction", label: "Introduction" },
     { doc: "configuration", label: "Configuration" },
-    { page: "help", label: "Help" },
-    { blog: true, label: "Blog" }
+    { doc: "generatingImages", label: "APIs" }
   ],
 
   users,
@@ -76,7 +75,7 @@ const siteConfig = {
   twitterImage: "img/undraw_tweetstorm.svg",
 
   enableUpdateBy: true,
-  enableUpdateTime: true,
+  enableUpdateTime: false,
 
   repoUrl: "https://github.com/Hackdoor-io/cezanne/"
 };

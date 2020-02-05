@@ -16,6 +16,17 @@
   background: linear-gradient(0deg, #ffffff 0%, #ccc0ff 100%);
 }
 
+.feature-block {
+  background: #181327;
+  color: #f5f5f5;
+}
+
+.homepage-codeblock {
+  width: 900px;
+  max-width: 80vw;
+  margin: auto;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
