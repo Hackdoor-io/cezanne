@@ -2,4 +2,6 @@
 *.ts linguist-detectable=true
 *.sh linguist-detectable=true
 *.js linguist-detectable=true
+*.re linguist-detectable=true
+*.rei linguist-detectable=true
 docusaurus/* linguist-documentation
