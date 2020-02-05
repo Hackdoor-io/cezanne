@@ -10,7 +10,7 @@
   "author": "Michele Riva <master@micheleriva.it>",
   "homepage": "https://github.com/Hackdoor-io/cezanne",
   "license": "GPL-3.0",
-  "main": "lib/reason.js",
+  "main": "src/reason.js",
   "scripts": {
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
@@ -26,11 +26,11 @@
     "cezanne": "^0.0.2"
   },
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "repository": {
     "type": "git",

@@ -15,7 +15,7 @@
 .idea
 .rpt2_cache
 
-packages/*/lib
+packages/reason/src
 lib
 packages/*/cezanne.config.dhall
 packages/*/cezanne.config.json
