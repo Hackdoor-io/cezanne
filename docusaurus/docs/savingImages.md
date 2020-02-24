@@ -4,7 +4,7 @@ title: Saving Images
 sidebar_label: Saving Images
 ---
 
-<img src="/img/misc/savingImages.png" width="350" style="max-width:90vw;" />
+<img src="/cezanne/img/misc/savingImages.png" width="350" style="max-width:90vw;" />
 
 ## Saving target
 

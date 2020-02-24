@@ -5,7 +5,7 @@ title: Configuration
 
 Make sure to read the [introduction](/introduction) to **Cezanne**!
 
-<img src="/img/misc/configuration.png" width="500px" style="max-width:90vw;" />
+<img src="/cezanne/img/misc/configuration.png" width="500px" style="max-width:90vw;" />
 
 **Cezanne** automatically looks for a file called `cezanne.config.json` in the root of your project (where the `package.json` file is). \
 The file must be formatted as follows:
