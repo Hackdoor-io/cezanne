@@ -39,9 +39,6 @@ class Footer extends React.Component {
             <h5>Docs</h5>
             <a href={this.docUrl("introduction.html", this.props.language)}>Introduction</a>
             <a href={this.docUrl("configuration.html", this.props.language)}>Configuration</a>
-            <a href={this.docUrl("doc3.html", this.props.language)}>
-              API Reference (or other categories)
-            </a>
           </div>
           <div>
             <h5>Community</h5>
@@ -81,16 +78,15 @@ class Footer extends React.Component {
         </section>
 
         <a
-          href="https://opensource.facebook.com/"
+          href="https://github.com/hackdoor-io"
           target="_blank"
           rel="noreferrer noopener"
           className="fbOpenSource"
         >
           <img
-            src={`${this.props.config.baseUrl}img/oss_logo.png`}
+            src={`${this.props.config.baseUrl}img/hackdoor-opensource.svg`}
             alt="Facebook Open Source"
-            width="170"
-            height="45"
+            width="200"
           />
         </a>
         <section className="copyright">{this.props.config.copyright}</section>

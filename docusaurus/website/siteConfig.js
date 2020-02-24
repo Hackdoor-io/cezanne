@@ -11,7 +11,7 @@
 const users = [
   {
     caption: "Hackdoor",
-    image: "/cezanne/img/users/hackdoor.png",
+    image: "/img/users/hackdoor.png",
     infoLink: "https://www.hackdoor.io",
     pinned: true
   }
@@ -20,8 +20,8 @@ const users = [
 const siteConfig = {
   title: "Cezanne",
   tagline: "Create social and OpenGraph images with Node.js",
-  url: "https://hackdoor-io.github.io/cezanne",
-  baseUrl: "/cezanne/",
+  url: "https://cezanne.js.org",
+  baseUrl: "/",
 
   projectName: "cezanne",
   organizationName: "Hackdoor-io",
@@ -34,9 +34,9 @@ const siteConfig = {
 
   users,
 
-  headerIcon: "/img/cezanne_icon.svg",
-  footerIcon: "/img/cezanne_icon.svg",
-  favicon: "/img/cezanne_icon.svg",
+  headerIcon: "img/cezanne_icon.svg",
+  footerIcon: "img/cezanne_icon.svg",
+  favicon: "img/cezanne_icon.svg",
 
   colors: {
     primaryColor: "#AA8DE8",
